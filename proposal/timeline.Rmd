@@ -1,24 +1,41 @@
 # Project plan
 
 ## Start-up phase
+
+```{=html}
 <!--
 Covering the planning phase, this section should provide a relatively detailed plan of how work will start on the project. This section is important because projects need to get up and running quickly.
-
 
  - [ ] Setting up collaboration platform inc. code for contributors etc.
  - [ ] Licence decisions
  - [ ] Reporting framework
 -->
-
+```
+Before starting the project proper we will consult on the R help system internals, .Rd parsing, and .pot creation and translation.
+Depending on scheduling with the people involved, this could take around 2 weeks.
 
 ## Technical delivery
+
+```{=html}
 <!--
 Covering the actual delivery of the project this section should provide at least a high-level the implementation. 
 
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
+```
+Target date is realtive to after the start-up phase.
+
+| Delivery                                     | Hours | Target date |
+|----------------------------------------------|-------|-------------|
+| .Rd parsing.                                 | 25    | 2 weeks     |
+| Creation of .pot files                       | 10    | 3 weeks     |
+| Translation of .Rd files using .po files     | 10    | 4 weeks     |
+| Installation of translation modules          | 30    | 6 weeks     |
+| Rendering of help pages in selected language | 30    | 8 weeks     |
 
 ## Other aspects
+
+```{=html}
 <!--
 Covering non-technical activities like on-going publicity, paper preparation, discussion groups etc. that might be required to facilitate successful delivery of the project.
 
@@ -28,3 +45,9 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] UseR!
  - [ ] ISC meetings
 -->
+```
+We will promote the work via blogposts in the rOpenSci blog during development and announce the package when it's done.
+16 hours in total.
+
+We will also write an article for [JOSS](https://joss.theoj.org/).
+20 hours.

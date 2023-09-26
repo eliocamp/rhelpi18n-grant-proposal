@@ -12,7 +12,6 @@ It is important to cover:
  - [ ] Why it should be tackled
 -->
 ```
-
 ```{=html}
 <!-- 
 Agregar: 
@@ -26,30 +25,20 @@ Agregar:
   https://github.com/joelnitta/dovetail
 -->
 ```
-
-R's help system is one of the great features of the language.
-Usage, description and examples are available right there in the console.
-It is important that this documentation is correct and useful both in the core packages and in the general contributed packages ecosystem.
-To that aim, CRAN enforces a suite of policies on documentation, such as all exported object having documentation, all arguments being documented, etc.
-
-Besides meeting those technical requirements, documentation needs to also be accessible to end users to be useful.
-This involves clear and consise language, consistent style, useful examples and many other characteristics not tested by CRAN.
-Not trivially, it also requires being written in a language the user actually understands.
-
-English is currently the de-facto international language and this is reflected in R function and variable names, like how the `mean()` function is not called `promedio()` or `Mittelwert()` and documentation language.
+English is currently the de-facto international language and this is reflected in R function and variable names (the `mean()` function is not called `promedio()` or `Mittelwert()`) and documentation language.
 And while contributed packages have a "Language" field and can be documented in other languages, the vast majority of contributed packages are documented in English.
 
 There is [a small number of packages documented in other languages](https://cderv.rbind.io/2018/03/11/non-english-pkg-in-cran/), presumably in accordance to their target audience.
-For example, [labstatR](https://cran.r-project.org/web/packages/labstatR/index.html) is a companion package for the italian book Laboratorio Di Statistica Con R and is documented in Italian.
+For example, [labstatR](https://cran.r-project.org/web/packages/labstatR/index.html) is a companion package for the Italian book Laboratorio Di Statistica Con R and is documented in Italian.
 The [chilemapas](https://cran.r-project.org/web/packages/chilemapas/chilemapas.pdf) package provides various simplified maps for Chile and it's documentation and function names are in Spanish.
 
-Packages documented in non-English languages can be more accessible for their intended populations, but they are much less accessible to the wider community.
+These packages can be more accessible for their intended audience, but they are much less accessible to the wider community.
 Useful functions/algorithms implemented in those packages would be hard to use for the rest of the community.
-So package authors are faced with the decision of making their package inaccessible to their target demographic or isolated from the wider ecosystem.
+So package authors face the decision of either making their package inaccessible to their target demographic or being isolated from the wider ecosystem.
 
 Real cases of this issue exists.
-For example, the [utilsIPEA](https://cran.r-project.org/web/packages/utilsIPEA/index.html) package is a package for the Brazilian Instituto de Pesquisa Economica Aplicada is documented in English and it's functions are a mix of English and Portuguese.
-The author publicly expressed [his need for bilingual documentation](https://stackoverflow.com/questions/37288823/bilingual-english-and-portuguese-documentation-in-an-r-package):
+For example, the [utilsIPEA](https://cran.r-project.org/web/packages/utilsIPEA/index.html) package, which implements functions used by the Brazilian Instituto de Pesquisa Economica Aplicada, is documented in English and its functions names are a mix of English and Portuguese.
+The author publicly expressed [the need for bilingual documentation](https://stackoverflow.com/questions/37288823/bilingual-english-and-portuguese-documentation-in-an-r-package):
 
 > I am writing a package to facilitate importing Brazilian socio-economic microdata sets (Census, PNAD, etc).
 > I foresee two distinct groups of users of the package:
