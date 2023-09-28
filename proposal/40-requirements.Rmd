@@ -13,7 +13,7 @@ Who needs to be involved, what's the proposed structure, what will it take to ge
 -->
 ```
 Elio Campitelli and Renara Hirota would be responsible for implementation.
-Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daroczi and Michael Chirico (?) would add their expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon would help with their knowledge of translation and internationalisation workflows.
+Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daroczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon would help with their knowledge of translation and internationalisation workflows.
 
 ## Processes
 
@@ -24,7 +24,6 @@ What processes need to be put in place e.g. codes of conduct, regular ISC meetin
 ```
 
 This project will be covered by a Code of Conduct adapted from [rOpenSci's Code of Conduct](https://ropensci.org/code-of-conduct/).
-
 
 ## Tools & Tech
 
