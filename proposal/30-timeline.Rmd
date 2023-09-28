@@ -46,8 +46,7 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] ISC meetings
 -->
 ```
-We will promote the work via blogposts in the rOpenSci blog during development and announce the package when it's done.
+We will promote the work via blogposts in the [R-Hub blog](https://blog.r-hub.io/) during development and announce the package when it's done.
 16 hours in total.
 
-We will also write an article for [JOSS](https://joss.theoj.org/).
-20 hours.
+We will also write an article for [JOSS](https://joss.theoj.org/) or [The R Journal](https://journal.r-project.org/) 20 hours.
