@@ -15,7 +15,7 @@ Who are the people responsible for actually delivering the project if the propos
 -->
 ```
 -   [Elio Campitelli](https://eliocamp.github.io/): Ph.D. student at the University of Buenos Aires in atmospheric sciences and an R package developer.
-    They are a founding member of the R User Group in Buenos Aires and MetaDocencia.
+    They are a founding member of the R User Group in Buenos Aires, and of MetaDocencia.
     They maintain several open-source R packages (e.g., ggnewscale; metR) and contribute to other packages, such as data.table and ggplot2.
     They contributed to the translation of the book R for Data Science to Spanish, and to the translation of rOpenSci materials, including rOpenSci Packages: Development, Maintenance, and Peer Review.
 
@@ -28,7 +28,7 @@ Who are the people responsible for actually delivering the project if the propos
 Who are the people who have actively helped with this proposal but won't necessarily be on the core project team later?
 -->
 ```
--   [Maëlle Salmon](https://masalmon.eu/): research software engineer at rOpenSci, previously in charge of three ISC funded projects (Catalyzing R-hub adoption through R package developer advocacy, HTTP testing in R, R-Ladies organizational guidance) funded by the ISC, R blogger, volunteer editor for rOpenSci's system of package peer-review, main manager of R-Ladies Global Twitter account.
+-   [Maëlle Salmon](https://masalmon.eu/): research software engineer at rOpenSci, previously in charge of four ISC funded projects (Catalyzing R-hub adoption through R package developer advocacy, HTTP testing in R, R-Ladies organizational guidance, Tooling and Guidance for Translations of Markdown-Based R Content (Quarto, R Markdown)) funded by the ISC, R blogger, volunteer editor for rOpenSci's system of package peer-review.
 
 -   [Yanina Bellini Saibene](https://yabellini.netlify.app/): Community Manager at rOpenSci, R-Ladies Project Lead, Member of The Carpentries Executive Council and RForwards Core Team.
     Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa.
