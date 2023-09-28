@@ -15,7 +15,6 @@ Who are the people responsible for actually delivering the project if the propos
 -->
 ```
 -   [Elio Campitelli](https://eliocamp.github.io/): Ph.D. student at the University of Buenos Aires in atmospheric sciences and an R package developer.
-    They are a founding member of the R User Group in Buenos Aires, and of MetaDocencia.
     They maintain several open-source R packages (e.g., ggnewscale; metR) and contribute to other packages, such as data.table and ggplot2.
     They contributed to the translation of the book R for Data Science to Spanish, and to the translation of rOpenSci materials, including rOpenSci Packages: Development, Maintenance, and Peer Review.
 
