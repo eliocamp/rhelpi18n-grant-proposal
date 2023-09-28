@@ -12,9 +12,10 @@ This is where the proposal should be outlined.
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 ```
-We aim at extending the R help system to allow for multiple help pages for the same function in different languages by installing translation modules, as discussed at the R Project Sprint 2023 in conversation with R Core members Martin Mächler, Deepayan Sarcar and Michael Lawrence..
-By default, `help()` would show the documentation in the preferred language of the user, if available, and fall-back to the canonical documentation otherwise (most likely, in English).
-It would also include a link to the canonical documentation and warnings if translations are out of date.
+We propose to extend the R help system to enable multiple help pages for the same function in different languages by installing translation modules.
+This was discussed at the R Project Sprint 2023 with R Core members Martin Mächler, Deepayan Sarcar and Michael Lawrence.
+By default, `help()` would display the documentation in the user's preferred language, if available, and fall-back to the canonical documentation otherwise (most likely, in English).
+It would also include a link to the canonical documentation and warnings if translations are not up to date.
 
 ## Detail
 
@@ -29,32 +30,34 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 ```
--   Original packages have their "canonical" help pages written in the original languages as usual (e.g. `mein.paket` is documented in German).
+The system would require three parts
 
--   Translated documentation to a language is hosted in a translation module (e.g. `mein_paket.en` would provide English documentation for `mein.paket`).
+### Translation of help pages
 
-    -   These modules are R packages that use the PackageType field to indicate that they are a translation module (e.g. `PackageType: translation`).
-        The Depends field is used to indicate the package being translated and the minimum version supported.
+The translation of help pages would be performed using .pot files.
+This would require a parser that takes .Rd files and creates .pot files ready for translation.
+These files could be translated using existing infrastructure such as weblate.
 
-    -   They store .po files with the translated strings.
+### Installation of translation modules
 
-    -   The user can install translation modules using `install.packages()` to get the documentation in that language.
+The translated .po files would be hosted in translation modules.
+These modules would piggyback on the package infrastructure but declare `PackageType: translation` and the name and version of the package they are translating in `Depends`.
 
-    -   Translation modules are not necessarily maintained by the original package authors.
-        In principle, multiple translation modules for the same package and the same language could exist and the user can chose which version they install.
+Translation modules wouldn't necessarily maintained by the original package authors.
+In principle, multiple translation modules for the same package and the same language could exist and the user can chose which version they install.
+They could be hosted on CRAN or a CRAN-like repository.
+Optionally, CRAN could develop quality checks on translation modules to ensure that they are up-to-date, such as a maximum percentage of missing strings or maximum percentage of fuzzy matches.
 
-    -   These modules could be hosted on CRAN or a CRAN-like repository.
-        Optionally, CRAN could develop quality checks on translation modules to ensure that they are up-to-date, such as a maximum percentage of missing strings or maximum percentage of fuzzy matches.
+The user would install them like regular packages (e.g. `install.pacakges("mein.paket.en")`.
+At installation the .Rd files of the original package would be parsed and translated using `gettext()` and the .po files in the translation module, and serialised into binary help pages (like regular packages have).
 
--   When a translation module is installed, the .Rd files of the original package are parsed and translated using `gettext()` and the .po files in the translation module, and serialised into binary help pages (like regular packages have).
+### Accessing documentation
 
--   When loading a package, R will also search for installed translations and load them too.
+The `help()` function would search for the loaded topics and if any translation is available, then it would use a new `language` argument to disambiguate.
+This argument would default to `Sys.getenv("LANGUAGE")`.
 
--   `help()` gains an new "language" argument which defaults to `Sys.getenv("LANGUAGE")`.
+Help pages would include a link to the original (canonical) documentation and add warnings if strings are untranslated/outdated.
 
--   `help()` searches for the loaded topics.
-    If any translation is available, then it would use the `language` argument to disambiguate.
+### Minimum Viable Product
 
--   Help pages would be modified to include include a link to the original (canonical) documentation and add warnings if strings are untranslated/outdated.
-
-![Concept map of the installation of translation modules and access to their translated help.](internationalisation.jpg){width="537"}
+???
