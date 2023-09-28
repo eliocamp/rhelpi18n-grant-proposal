@@ -20,7 +20,7 @@ Success of the project will be to have one or more R packages that implement the
 4.  Access of translated documentation using a `help()`-like function.
 5.  Modification of rendered help pages to include links to the canonical documentation.
 
-Additionally, dummy packages to showcase and test the functionality will be created.
+Additionally, toy packages to showcase and test the functionality will be created.
 
 ## Measuring success
 
@@ -29,7 +29,7 @@ Additionally, dummy packages to showcase and test the functionality will be crea
 How will we know when success is achieved, what markers can we use along the way 
 -->
 ```
-Use of this functionality in a real-world package.
+Use of this functionality in a real world package, such as [agromet](https://github.com/AgRoMeteorologiaINTA/agromet). 
 
 ## Future work
 
