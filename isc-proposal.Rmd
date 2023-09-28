@@ -11,20 +11,20 @@ knitr::opts_knit$set(warning = FALSE, message= FALSE)
 ```
 
 
-```{r autodoc, child='proposal/signatories.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/00-signatories.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='proposal/problemdefinition.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/10-problemdefinition.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='proposal/proposal.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/20-proposal.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='proposal/timeline.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/30-timeline.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='proposal/requirements.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/40-requirements.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='proposal/success.Rmd', eval=TRUE}
+```{r autodoc, child='proposal/50-success.Rmd', eval=TRUE}
 ```

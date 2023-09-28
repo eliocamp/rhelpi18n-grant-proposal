@@ -12,9 +12,7 @@ This is where the proposal should be outlined.
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 ```
-
-We aim at extending the R help system to allow for multiple help pages for the same function in different languages by installing translation modules,
-as discussed at the R Project Sprint 2023 in conversation with R Core members Martin Mächler, Deepayan Sarcar and Michael Lawrence..
+We aim at extending the R help system to allow for multiple help pages for the same function in different languages by installing translation modules, as discussed at the R Project Sprint 2023 in conversation with R Core members Martin Mächler, Deepayan Sarcar and Michael Lawrence..
 By default, `help()` would show the documentation in the preferred language of the user, if available, and fall-back to the canonical documentation otherwise (most likely, in English).
 It would also include a link to the canonical documentation and warnings if translations are out of date.
 
