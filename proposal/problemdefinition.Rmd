@@ -25,34 +25,21 @@ Agregar:
   https://github.com/joelnitta/dovetail
 -->
 ```
-English is currently the de-facto international language and this is reflected in R function and variable names (the `mean()` function is not called `promedio()` or `Mittelwert()`) and documentation language.
-And while contributed packages have a "Language" field and can be documented in other languages, the vast majority of contributed packages are documented in English.
+English is the de-facto international language and this is reflected in R by the use of English for function and argument names (e.g. `mean()` instead of `promedio()` or `Mittelwert()`) and documentation language.
+And while contributed packages can be documented in other languages, the vast majority are documented in English.
 
-There is [a small number of packages documented in other languages](https://cderv.rbind.io/2018/03/11/non-english-pkg-in-cran/), presumably in accordance to their target audience.
-For example, [labstatR](https://cran.r-project.org/web/packages/labstatR/index.html) is a companion package for the Italian book Laboratorio Di Statistica Con R and is documented in Italian.
-The [chilemapas](https://cran.r-project.org/web/packages/chilemapas/chilemapas.pdf) package provides various simplified maps for Chile and it's documentation and function names are in Spanish.
+There is [a small number of packages documented in other languages](https://cderv.rbind.io/2018/03/11/non-english-pkg-in-cran/), seemingly tailored to their target audience.
+For example, the [labstatR](https://cran.r-project.org/web/packages/labstatR/index.html) package serves as a companion to the Italian book "Laboratorio Di Statistica Con R" and is documented in Italian.
+Similarly, the [chilemapas](https://cran.r-project.org/web/packages/chilemapas/chilemapas.pdf) package provides simplified maps for Chile, with documentation and function names in Spanish.
 
-These packages can be more accessible for their intended audience, but they are much less accessible to the wider community.
-Useful functions/algorithms implemented in those packages would be hard to use for the rest of the community.
-So package authors face the decision of either making their package inaccessible to their target demographic or being isolated from the wider ecosystem.
+Although these packages are more accessible for their intended users, they are much less accessible to the wider community.
+Users who do not speak the language may find it difficult to discover and use the valuable functions and algorithms that these packages provide.
+Package authors face the dilemma of either making their package inaccessible to their target demographic or isolating it from the wider R ecosystem.
 
-Real cases of this issue exists.
-For example, the [utilsIPEA](https://cran.r-project.org/web/packages/utilsIPEA/index.html) package, which implements functions used by the Brazilian Instituto de Pesquisa Economica Aplicada, is documented in English and its functions names are a mix of English and Portuguese.
-The author publicly expressed [the need for bilingual documentation](https://stackoverflow.com/questions/37288823/bilingual-english-and-portuguese-documentation-in-an-r-package):
+The developer of the [utilsIPEA](https://cran.r-project.org/web/packages/utilsIPEA/index.html) package publicly expressed [the need for bilingual documentation](https://stackoverflow.com/questions/37288823/bilingual-english-and-portuguese-documentation-in-an-r-package), recognising that his package would be used by people in Brazil, who might prefer documentation in Portuguese, and the broader international community.
 
-> I am writing a package to facilitate importing Brazilian socio-economic microdata sets (Census, PNAD, etc).
-> I foresee two distinct groups of users of the package:
->
-> -   Users in Brazil, who may feel more at ease with the documentation in Portuguese.
->     The probably can understand English to some extent, but a foreign language would probably make the package feel less "ergonomic".
->
-> -   The broader international users community, from whom English documentation may be a necessary condition.
->
-> Is it possible to write a package in a way that the documentation is "bilingual" (English and Portuguese), and that the language shown to the user will depend on their country/language settings?
+Interestingly, a few packages have tried to solve this dilemma by documenting their package in English and publishing a second version of the package documented in another language.
+At least two packages on CRAN use this strategy: [ExpDes](https://cran.r-project.org/web/packages/ExpDes/index.html) and [ExpDes.pt](https://cran.r-project.org/web/packages/ExpDes.pt/index.html), as well as [orloca](https://cran.r-project.org/web/packages/orloca/index.html) and [orloca.es](https://cran.r-project.org/web/packages/orloca.es/index.html).
 
-Moreover, CRAN hosts at least two packages that have a secondary package version with documentation in another language.
-The [ExpDes](https://cran.r-project.org/web/packages/ExpDes/index.html) package has the companion package [ExpDes.pt](https://cran.r-project.org/web/packages/ExpDes.pt/index.html) with documentation in Portuguese.
-Similarly, the [orloca](https://cran.r-project.org/web/packages/orloca/index.html) package is documented in Spanish in the [orloca.es](https://cran.r-project.org/web/packages/orloca.es/index.html) package.
-
-Needless to say, this method of bilingual documentation is not recommended, as it's very hard to maintain and doesn't scale to other languages.
-A better alternative would be for R to allow packages to have multilingual documentation.
+This approach is very hard to maintain, doesn't scale well to multiple languages, and requires users to load a different package to access the documentation in their language.
+A more effective solution would be for R support for multilingual documentation as a standard feature.
