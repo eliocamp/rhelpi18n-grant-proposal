@@ -1,4 +1,4 @@
-proposal <- "Internationalisation of R help pages"
+proposal <- "Tooling for internationalisation of R help pages"
 proposal.file <- "isc-proposal.Rmd"
 author <- "Eio Campitelli and Renata Hirota"
 
