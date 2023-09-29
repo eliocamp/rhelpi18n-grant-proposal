@@ -11,7 +11,7 @@
 
 <meta name="author" content="Elio Campitelli and Renata Hirota" />
 
-<meta name="date" content="2023-09-28" />
+<meta name="date" content="2023-09-29" />
 
 <title>Tooling for internationalisation of R help pages</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Tooling for internationalisation of R help
 pages</h1>
 <h4 class="author">Elio Campitelli and Renata Hirota</h4>
-<h4 class="date">2023-09-28</h4>
+<h4 class="date">2023-09-29</h4>
 
 </div>
 
@@ -371,15 +371,14 @@ An optional section would be for R-Core signatories where changes to R are propo
 Who are the people responsible for actually delivering the project if the proposal gets accepted and are already signed up and rearing to go?
 -->
 <ul>
-<li><p><a href="https://eliocamp.github.io/">Elio Campitelli</a>:
+<li><a href="https://eliocamp.github.io/">Elio Campitelli</a>:
 Ph.D. student at the University of Buenos Aires in atmospheric sciences
 and an R package developer. They maintain several open-source R packages
 (e.g., ggnewscale; metR) and contribute to other packages, such as
 data.table and ggplot2. They contributed to the translation of the book
 R for Data Science to Spanish, and to the translation of rOpenSci
 materials, including rOpenSci Packages: Development, Maintenance, and
-Peer Review.</p></li>
-<li><p>Renata Hirota</p></li>
+Peer Review.</li>
 </ul>
 </div>
 <div id="contributors" class="section level2">
@@ -413,7 +412,9 @@ rOpenSci</p></li>
 Who has been given the opportunity to provide feedback on the proposal? This should include any R Consortium & ISC members who the proposal has been discussed with.
 -->
 <ul>
-<li>Yanina Bellini Saibene</li>
+<li><p>Gergely Daróczi</p></li>
+<li><p>Hadley Wickham</p></li>
+<li><p>Michael Lawrence</p></li>
 </ul>
 </div>
 </div>
@@ -424,21 +425,21 @@ Outlining the issue / weak point / problem to be solved by this proposal. This s
 
 It is important to cover:
 
- - [ ] What the problem is
- - [ ] Who it affects
- - [ ] Have there been previous attempts to resolve the problem
- - [ ] Why it should be tackled
+- [ ] What the problem is
+- [ ] Who it affects
+- [ ] Have there been previous attempts to resolve the problem
+- [ ] Why it should be tackled
 -->
 <!-- 
 Agregar: 
 
-  Inraestructura técnica y social.
+Inraestructura técnica y social.
 
-  Otras iniciativas.
+Otras iniciativas.
 
-  Apoyo de rOpenSci
-  
-  https://github.com/joelnitta/dovetail
+Apoyo de rOpenSci
+
+https://github.com/joelnitta/dovetail
 -->
 <p>English is the de-facto international language and this is reflected
 in R by the use of English for function and argument names
@@ -464,10 +465,9 @@ package publicly expressed <a href="https://stackoverflow.com/questions/37288823
 need for bilingual documentation</a>, recognising that his package would
 be used by people in Brazil, who might prefer documentation in
 Portuguese, and the broader international community.</p>
-<p>Interestingly, a few packages have tried to solve this dilemma by
-documenting their package in English and publishing a second version of
-the package documented in another language. At least two packages on
-CRAN use this strategy: <a href="https://cran.r-project.org/web/packages/ExpDes/index.html">ExpDes</a>
+<p>At least two packages have tried to solve this dilemma by documenting
+their package in English and publishing a second version documented in
+another language: <a href="https://cran.r-project.org/web/packages/ExpDes/index.html">ExpDes</a>
 and <a href="https://cran.r-project.org/web/packages/ExpDes.pt/index.html">ExpDes.pt</a>,
 as well as <a href="https://cran.r-project.org/web/packages/orloca/index.html">orloca</a>
 and <a href="https://cran.r-project.org/web/packages/orloca.es/index.html">orloca.es</a>.</p>
@@ -487,15 +487,36 @@ This is where the proposal should be outlined.
 <!--
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
-<p>We propose to extend the R help system to enable multiple help pages
-for the same function in different languages by installing translation
-modules. This was discussed at the R Project Sprint 2023 with R Core
-members Martin Mächler, Deepayan Sarcar and Michael Lawrence. By
-default, <code>help()</code> would display the documentation in the
-user’s preferred language, if available, and fall-back to the canonical
-documentation otherwise (most likely, in English). It would also include
-a link to the canonical documentation and warnings if translations are
-not up to date.</p>
+<p>We propose a system in which either package maintainers or community
+members could create translation modules of specific packages. Users
+would then be able to install those translation modules and browse their
+documentation. By default, <code>help()</code> would display the
+documentation in the user’s preferred language, if available, and
+fall-back to the canonical documentation otherwise. It would also
+include a link to the canonical documentation and warnings if
+translations are not up to date.</p>
+<p>This system would require tooling or changes in three aspects.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Create and maintain.</strong> There are established tools
+for localisation, but these don’t use the .Rd format used by R. We would
+provide a tool to go from .Rd files to other formats, such as .pot files
+and back.</li>
+<li><strong>Distribute and install.</strong> Translation modules would
+be hosted as normal packages with special metadata and installed with
+the usual tools. Depending on the implementation, these tools might need
+to be tweaked to recognise translation modules.</li>
+<li><strong>Access.</strong> The <code>help()</code> function would need
+to recognise topics with multiple help pages and show the user the
+appropriate help page. These pages would also need to be changed to
+include links to the original documentation and warnings for out-of-date
+translations.</li>
+</ol>
+<p>Adding support for multilingual documentation in R itself would be a
+big task, so this proposal aims to implement parts of this system in
+package space. This would enable quick prototyping and iterating with
+the long-term goal of merging the implementation into R once it matures.
+This was discussed at the R Project Sprint 2023 with R Core members
+Martin Mächler, Deepayan Sarkar and Michael Lawrence.</p>
 </div>
 <div id="detail" class="section level2">
 <h2>Detail</h2>
@@ -504,51 +525,26 @@ Go into more detail about the specifics of the project and it delivers against t
 
 Depending on project type the detail section should include:
 
- - [ ] Minimum Viable Product
- - [ ] Architecture
- - [ ] Assumptions
+- [ ] Minimum Viable Product
+- [ ] Architecture
+- [ ] Assumptions
 -->
-<p>The system would require three parts</p>
-<div id="translation-of-help-pages" class="section level3">
-<h3>Translation of help pages</h3>
-<p>The translation of help pages would be performed using .pot files.
-This would require a parser that takes .Rd files and creates .pot files
-ready for translation. These files could be translated using existing
-infrastructure such as weblate.</p>
-</div>
-<div id="installation-of-translation-modules" class="section level3">
-<h3>Installation of translation modules</h3>
-<p>The translated .po files would be hosted in translation modules.
-These modules would piggyback on the package infrastructure but declare
-<code>PackageType: translation</code> and the name and version of the
-package they are translating in <code>Depends</code>.</p>
-<p>Translation modules wouldn’t necessarily maintained by the original
-package authors. In principle, multiple translation modules for the same
-package and the same language could exist and the user can chose which
-version they install. They could be hosted on CRAN or a CRAN-like
-repository. Optionally, CRAN could develop quality checks on translation
-modules to ensure that they are up-to-date, such as a maximum percentage
-of missing strings or maximum percentage of fuzzy matches.</p>
-<p>The user would install them like regular packages
-(e.g. <code>install.pacakges(&quot;mein.paket.en&quot;)</code>. At installation
-the .Rd files of the original package would be parsed and translated
-using <code>gettext()</code> and the .po files in the translation
-module, and serialised into binary help pages (like regular packages
-have).</p>
-</div>
-<div id="accessing-documentation" class="section level3">
-<h3>Accessing documentation</h3>
-<p>The <code>help()</code> function would search for the loaded topics
-and if any translation is available, then it would use a new
-<code>language</code> argument to disambiguate. This argument would
-default to <code>Sys.getenv(&quot;LANGUAGE&quot;)</code>.</p>
-<p>Help pages would include a link to the original (canonical)
-documentation and add warnings if strings are untranslated/outdated.</p>
-</div>
-<div id="minimum-viable-product" class="section level3">
-<h3>Minimum Viable Product</h3>
-<p>???</p>
-</div>
+<p>In this project we will create a minimum viable product and test its
+functionality by translating the documentation of the <a href="https://github.com/AgRoMeteorologiaINTA/agromet">agromet</a>
+package into multiple languages, as well as a few important base R
+functions, such as <code>mean()</code> or <code>lm()</code>. We will
+implement the installation of the created translation modules and a
+<code>help()</code>-like function to access and render them.</p>
+<p>We will also set up an R Consortium Working Group to ensure long-term
+support for the overall goal of maturing this system and integrating it
+into R itself.</p>
+<p>Code will be hosted in a GitHub repository governed by a Code of
+Conduct adapted from <a href="https://ropensci.org/code-of-conduct/">rOpenSci’s Code of
+Conduct</a> and published under an open licence.</p>
+<p>We will promote the work via blogposts in the <a href="https://ropensci.org/blog/">rOpenSCi blog</a> and/or <a href="https://blog.r-hub.io/">R-Hub blog</a> during development. We
+anticipate about 3 posts –roughly touching on the three aspects of the
+project– and one announcement post when the package is available.</p>
+<p>We will also write an article for <a href="https://joss.theoj.org/">JOSS</a> or <a href="https://journal.r-project.org/">The R Journal</a>.</p>
 </div>
 </div>
 <div id="project-plan" class="section level1">
@@ -558,9 +554,9 @@ documentation and add warnings if strings are untranslated/outdated.</p>
 <!--
 Covering the planning phase, this section should provide a relatively detailed plan of how work will start on the project. This section is important because projects need to get up and running quickly.
 
- - [ ] Setting up collaboration platform inc. code for contributors etc.
- - [ ] Licence decisions
- - [ ] Reporting framework
+- [ ] Setting up collaboration platform inc. code for contributors etc.
+- [ ] Licence decisions
+- [ ] Reporting framework
 -->
 <p>Before starting the project proper we will consult on the R help
 system internals, .Rd parsing, and .pot creation and translation.
@@ -574,161 +570,119 @@ Covering the actual delivery of the project this section should provide at least
 
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
-<p>Target date is realtive to after the start-up phase.</p>
+<p>Target date is relative to after the start-up phase.</p>
 <table>
+<colgroup>
+<col width="59%" />
+<col width="8%" />
+<col width="32%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>Delivery</th>
-<th>Hours</th>
-<th>Target date</th>
+<th align="left">Delivery</th>
+<th align="right">Hours</th>
+<th align="left">Target date</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>.Rd parsing.</td>
-<td>25</td>
-<td>2 weeks</td>
+<td align="left">Creation of Working Group</td>
+<td align="right">8</td>
+<td align="left">2 weeks</td>
 </tr>
 <tr class="even">
-<td>Creation of .pot files</td>
-<td>10</td>
-<td>3 weeks</td>
+<td align="left">Writing blog posts</td>
+<td align="right">16</td>
+<td align="left">Throughout the project</td>
 </tr>
 <tr class="odd">
-<td>Translation of .Rd files using .po files</td>
-<td>10</td>
-<td>4 weeks</td>
+<td align="left">Creation of sample translation modules</td>
+<td align="right">56</td>
+<td align="left">4 weeks</td>
 </tr>
 <tr class="even">
-<td>Installation of translation modules</td>
-<td>30</td>
-<td>6 weeks</td>
+<td align="left">Installation of translation modules</td>
+<td align="right">56</td>
+<td align="left">8 weeks</td>
 </tr>
 <tr class="odd">
-<td>Rendering of help pages in selected language</td>
-<td>30</td>
-<td>8 weeks</td>
+<td align="left">Rendering help pages in selected language</td>
+<td align="right">56</td>
+<td align="left">16 weeks</td>
+</tr>
+<tr class="even">
+<td align="left">Writing of article for JOSS/R Journal</td>
+<td align="right">16</td>
+<td align="left">20 weeks</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">208</td>
+<td align="left">20 weeks</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="other-aspects" class="section level2">
-<h2>Other aspects</h2>
-<!--
-Covering non-technical activities like on-going publicity, paper preparation, discussion groups etc. that might be required to facilitate successful delivery of the project.
-
- - [ ] Announcement post
- - [ ] Delivery blog post
- - [ ] Twitter
- - [ ] UseR!
- - [ ] ISC meetings
--->
-<p>We will promote the work via blogposts in the <a href="https://blog.r-hub.io/">R-Hub blog</a> during development and
-announce the package when it’s done. 16 hours in total.</p>
-<p>We will also write an article for <a href="https://joss.theoj.org/">JOSS</a> or <a href="https://journal.r-project.org/">The R Journal</a> 20 hours.</p>
+<p>At $100 per hour used in previous R Consortium projects, this would
+cost $20,800 in total.</p>
 </div>
 </div>
-<div id="requirements" class="section level1">
-<h1>Requirements</h1>
-<!-- 
-An idea of what is required to make the project actually happen
--->
-<div id="people" class="section level2">
-<h2>People</h2>
+<div id="people" class="section level1">
+<h1>People</h1>
 <!--
 Who needs to be involved, what's the proposed structure, what will it take to get their involvement?
 -->
-<p>Elio Campitelli and Renara Hirota would be responsible for
-implementation. Several other people would give their know as
-consultants: Michael Lawrence would serve as R Core contact, Gergely
-Daroczi would add his expertise with .po files and the
-<code>gettext()</code> infrastructure, and Maëlle Salmon would help with
-their knowledge of translation and internationalisation workflows.</p>
-</div>
-<div id="processes" class="section level2">
-<h2>Processes</h2>
-<!-- 
-What processes need to be put in place e.g. codes of conduct, regular ISC meetings, handover to the community at large?
--->
-<p>This project will be covered by a Code of Conduct adapted from <a href="https://ropensci.org/code-of-conduct/">rOpenSci’s Code of
-Conduct</a>.</p>
-</div>
-<div id="tools-tech" class="section level2">
-<h2>Tools &amp; Tech</h2>
-<!--
-What is going to be needed to deliver this project? 
-
-Will cloud computing be used - if yes are there are necessary components that will be deciding factors between providers?
-
-Are there tools or tech that don't exist that will be produced to facilitate the project?
--->
-<p>We would use a GitHub repository for collaboration and code
-hosting.</p>
-</div>
-<div id="funding" class="section level2">
-<h2>Funding</h2>
-<!-- 
-[TO DO] THE GUIDANCE IS PRETTY UNCLEAR, ESP IN LIGHT OF GABOR'S PROPOSAL VS AWARD SIZE
-
--->
-</div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-<!--
-A summary of the requirements that contextualises the costs
--->
-</div>
+<p>Elio Campitelli would be responsible for implementation. Several
+other people would give their know as consultants: Michael Lawrence
+would serve as R Core contact, Gergely Daroczi would add his expertise
+with .po files and the <code>gettext()</code> infrastructure, and Maëlle
+Salmon would help with their knowledge of translation and
+internationalisation workflows.</p>
 </div>
 <div id="success" class="section level1">
 <h1>Success</h1>
-<!-- 
-Projects should have a definition of done that is measurable, and a thorough understanding going in of what the risks are to delivery 
--->
-<div id="definition-of-done" class="section level2">
-<h2>Definition of done</h2>
-<!-- 
-What does success look like? 
--->
-<p>Success of the project will be to have one or more R packages that
-implement the following functionality:</p>
-<ol style="list-style-type: decimal">
-<li>Parsing .Rd files into .pot files.</li>
-<li>Translation of .Rd files using .po files.</li>
-<li>Installation of translation modules.</li>
-<li>Access of translated documentation using a <code>help()</code>-like
-function.</li>
-<li>Modification of rendered help pages to include links to the
-canonical documentation.</li>
-</ol>
-<p>Additionally, toy packages to showcase and test the functionality
-will be created.</p>
-</div>
+<p>Success of the project will be to produce at one or more package that
+provide the full cycle of translating, installing and accessing
+translated documentation.</p>
 <div id="measuring-success" class="section level2">
 <h2>Measuring success</h2>
 <!-- 
 How will we know when success is achieved, what markers can we use along the way 
 -->
-<p>Use of this functionality in a real world package, such as <a href="https://github.com/AgRoMeteorologiaINTA/agromet">agromet</a>.</p>
+<p>Use of this functionality in more real world packages.</p>
 </div>
 <div id="future-work" class="section level2">
 <h2>Future work</h2>
 <!-- 
 How could this be extended / developed in the future by yourself and/or the community in general?
 -->
-<p>Test in real world packages and workflows and gather feedback to
-improve the system. Make changes in the help rendered by
-<code>help.start()</code> to support multiple languages. Once the
-project is mature, incorporate the functionality into R itself.</p>
+<ul>
+<li><p>Test in real world packages and workflows and gather feedback to
+improve the system.</p></li>
+<li><p>Test support of multiple languages, including CJK and
+right-to-left languages.</p></li>
+<li><p>Exploring scalability to multiple packages and multiple languages
+(e.g. can a single translation module be used for multiple
+packages?).</p></li>
+<li><p>Explore other methods, like dynamic delivery of translations from
+remote source, machine translation.</p></li>
+<li><p>Make changes in the help rendered by <code>help.start()</code> to
+support multiple languages.</p></li>
+<li><p>Extend the system to support vignettes.</p></li>
+<li><p>Explore methods of automatically searching, installing and
+updating translation modules for installed packages.</p></li>
+<li><p>Once the project is mature, incorporate the functionality into R
+itself.</p></li>
+</ul>
 </div>
 <div id="key-risks" class="section level2">
 <h2>Key risks</h2>
 <!-- 
 What sort of things could come up that can delay or break the project?
 
- - [ ] People
- - [ ] Processes
- - [ ] Tooling & Technology
- - [ ] Costs
+- [ ] People
+- [ ] Processes
+- [ ] Tooling & Technology
+- [ ] Costs
 
 -->
 <p>.Rd files can be very complex and even dynamically created. Parsing
