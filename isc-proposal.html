@@ -401,7 +401,7 @@ Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa. She lead
 the collaborative translation of Teaching Teach Together to Spanish and
 MetaDocencia educational materials to Portuguese. She was involved in
 the translation to Spanish of R for Data Science, R-Ladies’s Rules and
-Guidelines, some lessons by The Carpentries and severals RStudio Cheat
+Guidelines, some lessons by The Carpentries and several RStudio Cheat
 Sheets. She is leading the Multilingual Publishing project at
 rOpenSci</p></li>
 </ul>
@@ -429,17 +429,6 @@ It is important to cover:
 - [ ] Who it affects
 - [ ] Have there been previous attempts to resolve the problem
 - [ ] Why it should be tackled
--->
-<!-- 
-Agregar: 
-
-Inraestructura técnica y social.
-
-Otras iniciativas.
-
-Apoyo de rOpenSci
-
-https://github.com/joelnitta/dovetail
 -->
 <p>English is the de-facto international language and this is reflected
 in R by the use of English for function and argument names
@@ -535,14 +524,16 @@ documentation of the <a href="https://github.com/AgRoMeteorologiaINTA/agromet">a
 package into multiple languages, as well as a few important base R
 functions, such as <code>mean()</code> or <code>lm()</code>. We will
 implement the installation of the created translation modules and a
-<code>help()</code>-like function to access and render them.</p>
+<code>help()</code>-like function to access them. For this project, we
+will not change the rendered documentation to add links to the original
+documentation.</p>
 <p>We will also set up an R Consortium Working Group to ensure long-term
 support for the overall goal of maturing this system and integrating it
 into R itself.</p>
 <p>Code will be hosted in a GitHub repository governed by a Code of
 Conduct adapted from <a href="https://ropensci.org/code-of-conduct/">rOpenSci’s Code of
 Conduct</a> and published under an open licence.</p>
-<p>We will promote the work via blogposts in the <a href="https://ropensci.org/blog/">rOpenSCi blog</a> and/or <a href="https://blog.r-hub.io/">R-Hub blog</a> during development. We
+<p>We will promote the work via blog posts in the <a href="https://ropensci.org/blog/">rOpenSci blog</a> and/or <a href="https://blog.r-hub.io/">R-Hub blog</a> during development. We
 anticipate about 3 posts –roughly touching on the three aspects of the
 project– and one announcement post when the package is available.</p>
 <p>We will also write an article for <a href="https://joss.theoj.org/">JOSS</a> or <a href="https://journal.r-project.org/">The R Journal</a>.</p>
@@ -634,7 +625,7 @@ Who needs to be involved, what's the proposed structure, what will it take to ge
 -->
 <p>Elio Campitelli would be responsible for implementation. Several
 other people would give their know as consultants: Michael Lawrence
-would serve as R Core contact, Gergely Daroczi would add his expertise
+would serve as R Core contact, Gergely Daróczi would add his expertise
 with .po files and the <code>gettext()</code> infrastructure, and Maëlle
 Salmon would help with their knowledge of translation and
 internationalisation workflows.</p>
@@ -666,8 +657,11 @@ right-to-left languages.</p></li>
 packages?).</p></li>
 <li><p>Explore other methods, like dynamic delivery of translations from
 remote source, machine translation.</p></li>
-<li><p>Make changes in the help rendered by <code>help.start()</code> to
-support multiple languages.</p></li>
+<li><p>Make changes in the rendered help pages to include links to the
+original documentation and handle outdated or missing
+translations.</p></li>
+<li><p>Add multilingual support for help pages provided by
+<code>help.start()</code>.</p></li>
 <li><p>Extend the system to support vignettes.</p></li>
 <li><p>Explore methods of automatically searching, installing and
 updating translation modules for installed packages.</p></li>
