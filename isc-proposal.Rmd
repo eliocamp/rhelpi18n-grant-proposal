@@ -200,7 +200,7 @@ Who needs to be involved, what's the proposed structure, what will it take to ge
 -->
 ```
 Elio Campitelli would be responsible for implementation.
-Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daróczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon would help with their knowledge of translation and internationalisation workflows.
+Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daróczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon and Yanina Bellini Saibene would help with their knowledge of translation and internationalisation workflows.
 
 # Success
 
