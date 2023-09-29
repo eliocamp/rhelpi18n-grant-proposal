@@ -41,7 +41,7 @@ Who are the people who have actively helped with this proposal but won't necessa
 
 -   [Yanina Bellini Saibene](https://yabellini.netlify.app/): Community Manager at rOpenSci, R-Ladies Project Lead, Member of The Carpentries Executive Council and RForwards Core Team.
     Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa.
-    She lead the collaborative translation of Teaching Teach Together to Spanish and MetaDocencia educational materials to Portuguese.
+    She leads the collaborative translation of Teaching Teach Together to Spanish and MetaDocencia educational materials to Portuguese.
     She was involved in the translation to Spanish of _R for Data Science_, R-Ladies's Rules and Guidelines, some lessons by The Carpentries and several RStudio Cheat Sheets.
     She is leading the Multilingual Publishing project at rOpenSci.
 
@@ -90,7 +90,7 @@ At least two packages have tried to solve this dilemma by documenting their pack
 The [karel](https://cloud.r-project.org/web/packages/karel/index.html) package, on the other hand, has sets of functions named and documented in English and a second set of functions named and documented in Spanish.
 
 Both approaches are very hard to maintain and don't scale well to multiple languages; the first one also requires users to load a different package to access the documentation in their language.
-A more effective solution would be for R support for multilingual documentation as a standard feature.
+A more effective solution would be for R to support multilingual documentation as a standard feature.
 
 # The proposal
 
@@ -209,7 +209,7 @@ Several other people would give their know as consultants: Michael Lawrence woul
 
 # Success
 
-Success of the project will be to produce at one or more package that provide the full cycle of translating, installing and accessing translated documentation.
+Success of the project will be to produce one or more packages that provide the full cycle of translating, installing and accessing translated documentation.
 
 ## Measuring success
 
