@@ -26,7 +26,9 @@ An optional section would be for R-Core signatories where changes to R are propo
 Who are the people responsible for actually delivering the project if the proposal gets accepted and are already signed up and rearing to go?
 -->
 ```
--   [Elio Campitelli](https://eliocamp.github.io/): Ph.D. student at the University of Buenos Aires in atmospheric sciences and an R package developer. They maintain several open-source R packages (e.g., ggnewscale; metR) and contribute to other packages, such as data.table and ggplot2. They contributed to the translation of the book R for Data Science to Spanish, and to the translation of rOpenSci materials, including rOpenSci Packages: Development, Maintenance, and Peer Review.
+-   [Elio Campitelli](https://eliocamp.github.io/): Ph.D. student at the University of Buenos Aires in atmospheric sciences and an R package developer. They maintain several open-source R packages (e.g., ggnewscale; metR) and contribute to other packages, such as data.table and ggplot2. They contributed to the translation of the book _R for Data Science_ to Spanish, and to the translation of rOpenSci materials, including rOpenSci Packages: Development, Maintenance, and Peer Review.
+
+-   [Renata Hirota](https://github.com/rmhirota/): MSc. student at the University of Sao Paulo in statistics, data journalist and researcher at the Brazilian Jurimetrics Association. Co-organizer of R-Ladies Sao Paulo and R package developer and contributor, both public and internal. Contributed to the translation of R error messages and `dados`, a package with the Portuguese version of datasets used in the book _R for Data Science_.
 
 ## Contributors
 
@@ -40,8 +42,8 @@ Who are the people who have actively helped with this proposal but won't necessa
 -   [Yanina Bellini Saibene](https://yabellini.netlify.app/): Community Manager at rOpenSci, R-Ladies Project Lead, Member of The Carpentries Executive Council and RForwards Core Team.
     Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa.
     She lead the collaborative translation of Teaching Teach Together to Spanish and MetaDocencia educational materials to Portuguese.
-    She was involved in the translation to Spanish of R for Data Science, R-Ladies's Rules and Guidelines, some lessons by The Carpentries and several RStudio Cheat Sheets.
-    She is leading the Multilingual Publishing project at rOpenSci
+    She was involved in the translation to Spanish of _R for Data Science_, R-Ladies's Rules and Guidelines, some lessons by The Carpentries and several RStudio Cheat Sheets.
+    She is leading the Multilingual Publishing project at rOpenSci.
 
 ## Consulted
 
@@ -202,7 +204,7 @@ At \$100 per hour used in previous R Consortium projects, this would cost `r sca
 Who needs to be involved, what's the proposed structure, what will it take to get their involvement?
 -->
 ```
-Elio Campitelli would be responsible for implementation.
+Elio Campitelli and Renata Hirota would be responsible for implementation.
 Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daróczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon and Yanina Bellini Saibene would help with their knowledge of translation and internationalisation workflows.
 
 # Success
