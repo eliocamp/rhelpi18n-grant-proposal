@@ -35,14 +35,13 @@ Who are the people responsible for actually delivering the project if the propos
 Who are the people who have actively helped with this proposal but won't necessarily be on the core project team later?
 -->
 ```
-
 -   [Maëlle Salmon](https://masalmon.eu/): research software engineer at rOpenSci, previously in charge of four ISC funded projects (Catalyzing R-hub adoption through R package developer advocacy, HTTP testing in R, R-Ladies organizational guidance, Tooling and Guidance for Translations of Markdown-Based R Content (Quarto, R Markdown)) funded by the ISC, R blogger, volunteer editor for rOpenSci's system of package peer-review.
 
 -   [Yanina Bellini Saibene](https://yabellini.netlify.app/): Community Manager at rOpenSci, R-Ladies Project Lead, Member of The Carpentries Executive Council and RForwards Core Team.
-Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa.
-She lead the collaborative translation of Teaching Teach Together to Spanish and MetaDocencia educational materials to Portuguese.
-She was involved in the translation to Spanish of R for Data Science, R-Ladies's Rules and Guidelines, some lessons by The Carpentries and severals RStudio Cheat Sheets.
-She is leading the Multilingual Publishing project at rOpenSci
+    Co-founder of MetaDocencia, LatinR, and R-Ladies Santa Rosa.
+    She lead the collaborative translation of Teaching Teach Together to Spanish and MetaDocencia educational materials to Portuguese.
+    She was involved in the translation to Spanish of R for Data Science, R-Ladies's Rules and Guidelines, some lessons by The Carpentries and several RStudio Cheat Sheets.
+    She is leading the Multilingual Publishing project at rOpenSci
 
 ## Consulted
 
@@ -51,7 +50,6 @@ She is leading the Multilingual Publishing project at rOpenSci
 Who has been given the opportunity to provide feedback on the proposal? This should include any R Consortium & ISC members who the proposal has been discussed with.
 -->
 ```
-
 -   Gergely Daróczi
 
 -   Hadley Wickham
@@ -72,20 +70,6 @@ It is important to cover:
 - [ ] Why it should be tackled
 -->
 ```
-```{=html}
-<!-- 
-Agregar: 
-
-Inraestructura técnica y social.
-
-Otras iniciativas.
-
-Apoyo de rOpenSci
-
-https://github.com/joelnitta/dovetail
--->
-```
-
 English is the de-facto international language and this is reflected in R by the use of English for function and argument names (e.g. `mean()` instead of `promedio()` or `Mittelwert()`) and documentation language.
 And while contributed packages can be documented in other languages, the vast majority are documented in English.
 
@@ -146,15 +130,15 @@ Depending on project type the detail section should include:
 - [ ] Assumptions
 -->
 ```
-
-In this project we will create a minimum viable product and test its functionality by translating the documentation of the [agromet](https://github.com/AgRoMeteorologiaINTA/agromet) package into multiple languages, as well as a few important base R functions, such as `mean()` or `lm()`.
-We will implement the installation of the created translation modules and a `help()`-like function to access and render them.
+In this project we will explore and create prototypes for the three aspects delineated above and test their functionality by translating the documentation of the [agromet](https://github.com/AgRoMeteorologiaINTA/agromet) package into multiple languages, as well as a few important base R functions, such as `mean()` or `lm()`.
+We will implement the installation of the created translation modules and a `help()`-like function to access them.
+For this project, we will not change the rendered documentation to add links to the original documentation.
 
 We will also set up an R Consortium Working Group to ensure long-term support for the overall goal of maturing this system and integrating it into R itself.
 
-Code will be hosted in a GitHub repository governed by a Code of Conduct adapted from [rOpenSci's Code of Conduct](https://ropensci.org/code-of-conduct/) and published under an open licence. 
+Code will be hosted in a GitHub repository governed by a Code of Conduct adapted from [rOpenSci's Code of Conduct](https://ropensci.org/code-of-conduct/) and published under an open licence.
 
-We will promote the work via blogposts in the [rOpenSCi blog](https://ropensci.org/blog/) and/or [R-Hub blog](https://blog.r-hub.io/) during development.
+We will promote the work via blog posts in the [rOpenSci blog](https://ropensci.org/blog/) and/or [R-Hub blog](https://blog.r-hub.io/) during development.
 We anticipate about 3 posts --roughly touching on the three aspects of the project-- and one announcement post when the package is available.
 
 We will also write an article for [JOSS](https://joss.theoj.org/) or [The R Journal](https://journal.r-project.org/).
@@ -172,11 +156,10 @@ Covering the planning phase, this section should provide a relatively detailed p
 - [ ] Reporting framework
 -->
 ```
-
 Before starting the project proper we will consult on the R help system internals, .Rd parsing, and .pot creation and translation.
 Depending on scheduling with the people involved, this could take around 2 weeks.
 
-## Technical delivery
+## Technical delivery and funding
 
 ```{=html}
 <!--
@@ -185,7 +168,6 @@ Covering the actual delivery of the project this section should provide at least
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
 ```
-
 Target date is relative to after the start-up phase.
 
 ```{r echo=FALSE}
@@ -208,7 +190,7 @@ time |>
   knitr::kable()
 ```
 
-At $100 per hour used in previous R Consortium projects, this would cost `r scales::dollar(sum(time$Hours)/2 * 100)` in total.
+At \$100 per hour used in previous R Consortium projects, this would cost `r scales::dollar(sum(time$Hours)/2 * 100)` in total.
 
 # People
 
@@ -217,9 +199,8 @@ At $100 per hour used in previous R Consortium projects, this would cost `r scal
 Who needs to be involved, what's the proposed structure, what will it take to get their involvement?
 -->
 ```
-
 Elio Campitelli would be responsible for implementation.
-Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daroczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon would help with their knowledge of translation and internationalisation workflows.
+Several other people would give their know as consultants: Michael Lawrence would serve as R Core contact, Gergely Daróczi would add his expertise with .po files and the `gettext()` infrastructure, and Maëlle Salmon would help with their knowledge of translation and internationalisation workflows.
 
 # Success
 
@@ -232,7 +213,6 @@ Success of the project will be to produce at one or more package that provide th
 How will we know when success is achieved, what markers can we use along the way 
 -->
 ```
-
 Use of this functionality in more real world packages.
 
 ## Future work
@@ -242,22 +222,23 @@ Use of this functionality in more real world packages.
 How could this be extended / developed in the future by yourself and/or the community in general?
 -->
 ```
+-   Test in real world packages and workflows and gather feedback to improve the system.
 
-* Test in real world packages and workflows and gather feedback to improve the system.
+-   Test support of multiple languages, including CJK and right-to-left languages.
 
-* Test support of multiple languages, including CJK and right-to-left languages.
+-   Exploring scalability to multiple packages and multiple languages (e.g. can a single translation module be used for multiple packages?).
 
-* Exploring scalability to multiple packages and multiple languages (e.g. can a single translation module be used for multiple packages?). 
+-   Explore other methods, like dynamic delivery of translations from remote source, machine translation.
 
-* Explore other methods, like dynamic delivery of translations from remote source, machine translation. 
+-   Make changes in the rendered help pages to include links to the original documentation and handle outdated or missing translations.
 
-* Make changes in the help rendered by `help.start()` to support multiple languages.
+-   Add multilingual support for help pages provided by `help.start()`.
 
-* Extend the system to support vignettes.
+-   Extend the system to support vignettes.
 
-* Explore methods of automatically searching, installing and updating translation modules for installed packages. 
+-   Explore methods of automatically searching, installing and updating translation modules for installed packages.
 
-* Once the project is mature, incorporate the functionality into R itself.
+-   Once the project is mature, incorporate the functionality into R itself.
 
 ## Key risks
 
@@ -272,7 +253,6 @@ What sort of things could come up that can delay or break the project?
 
 -->
 ```
-
 .Rd files can be very complex and even dynamically created.
 Parsing them could be to hard or brittle to allow for robust creation of .pot files.
 Alternatively, the `gettext()` system is designed for short pieces of text and might not prove ergonomical.
