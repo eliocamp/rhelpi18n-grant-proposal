@@ -460,11 +460,15 @@ another language: <a href="https://cran.r-project.org/web/packages/ExpDes/index.
 and <a href="https://cran.r-project.org/web/packages/ExpDes.pt/index.html">ExpDes.pt</a>,
 as well as <a href="https://cran.r-project.org/web/packages/orloca/index.html">orloca</a>
 and <a href="https://cran.r-project.org/web/packages/orloca.es/index.html">orloca.es</a>.</p>
-<p>This approach is very hard to maintain, doesn’t scale well to
-multiple languages, and requires users to load a different package to
-access the documentation in their language. A more effective solution
-would be for R support for multilingual documentation as a standard
-feature.</p>
+<p>The <a href="https://cloud.r-project.org/web/packages/karel/index.html">karel</a>
+package, on the other hand, has sets of functions named and documented
+in English and a second set of functions named and documented in
+Spanish.</p>
+<p>Both approaches are very hard to maintain and don’t scale well to
+multiple languages; the first one also requires users to load a
+different package to access the documentation in their language. A more
+effective solution would be for R support for multilingual documentation
+as a standard feature.</p>
 </div>
 <div id="the-proposal" class="section level1">
 <h1>The proposal</h1>
@@ -503,8 +507,9 @@ translations.</li>
 <p>Adding support for multilingual documentation in R itself would be a
 big task, so this proposal aims to implement parts of this system in
 package space. This would enable quick prototyping and iterating with
-the long-term goal of merging the implementation into R once it matures.
-This was discussed at the R Project Sprint 2023 with R Core members
+the long-term goal of merging the implementation into R once it
+matures.</p>
+<p>This was discussed at the R Project Sprint 2023 with R Core members
 Martin Mächler, Deepayan Sarkar and Michael Lawrence.</p>
 </div>
 <div id="detail" class="section level2">
@@ -627,8 +632,8 @@ Who needs to be involved, what's the proposed structure, what will it take to ge
 other people would give their know as consultants: Michael Lawrence
 would serve as R Core contact, Gergely Daróczi would add his expertise
 with .po files and the <code>gettext()</code> infrastructure, and Maëlle
-Salmon would help with their knowledge of translation and
-internationalisation workflows.</p>
+Salmon and Yanina Bellini Saibene would help with their knowledge of
+translation and internationalisation workflows.</p>
 </div>
 <div id="success" class="section level1">
 <h1>Success</h1>
